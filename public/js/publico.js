@@ -13,19 +13,18 @@ const socket = io();
 
 socket.on('estado-actual', ( payload ) => {
 
-    console.log('lala >>>', payload);
-    // const [ ticket1, ticket2, ticket3, ticket4 ] = payload;
+    const [ ticket1, ticket2, ticket3, ticket4 ] = payload;
 
-    // lblTicket1.innerText = 'Ticket ' + ticket1.numero;
-    // lblEscritorio1.innerText = ticket1.desktop;
+    lblTicket1.innerText = 'Ticket ' + ticket1.number;
+    lblEscritorio1.innerText = 'Escriotrio: ' + ticket1.desktop;
 
-    // lblTicket2.innerText = 'Ticket ' + ticket2.numero;
-    // lblEscritorio2.innerText = ticket2.desktop;
+    lblTicket2.innerText = 'Ticket ' + ticket2.number;
+    lblEscritorio2.innerText = 'Escriotrio: ' + ticket2.desktop;
 
-    // lblTicket3.innerText = 'Ticket ' + ticket3.numero;
-    // lblEscritorio3.innerText = ticket3.desktop;
+    lblTicket3.innerText = 'Ticket ' + ticket3.number;
+    lblEscritorio3.innerText = 'Escriotrio: ' + ticket3.desktop;
 
-    // lblTicket4.innerText = 'Ticket ' + ticket4.numero;
-    // lblEscritorio4.innerText = ticket4.desktop;
+    lblTicket4.innerText = 'Ticket ' + ticket4.number;
+    lblEscritorio4.innerText = 'Escriotrio: ' + ticket4.desktop;
 
 });

@@ -25,7 +25,7 @@ const socketController = ( socket ) => {
         };
 
         const ticket = ticketControl.attendTicket( desktop );
-        socket.emit('estado-actual', ticketControl.lastFour );
+        socket.broadcast.emit('estado-actual', ticketControl.lastFour );
 
         if ( !ticket ) {
 

@@ -85,12 +85,10 @@ class TicketControl {
         this.lastFour.unshift( ticket );
         if ( this.lastFour.length > 4 ) {
             
-            this.lastFour.slice(-1, 1);
+            this.lastFour.splice(4);
 
         };
 
-        console.log('this.lastFour final>', this.lastFour);
-        console.log('this.lastFour final2>', this.lastFour.slice(-1, 1));
         this.saveDB();
 
         return ticket;
