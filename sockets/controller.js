@@ -5,11 +5,13 @@ const socketController = ( socket ) => {
 
     socket.emit('last-ticket', ticketControl.last );
     socket.emit('estado-actual', ticketControl.lastFour );
+    socket.emit('tickets-pendientes', ticketControl.tickets.length );
 
     socket.on('next-ticket', ( payload, callback ) => {
 
         const next = ticketControl.next();
         callback( next );
+        socket.broadcast.emit('tickets-pendientes', ticketControl.tickets.length );
 
     });
 
@@ -25,7 +27,10 @@ const socketController = ( socket ) => {
         };
 
         const ticket = ticketControl.attendTicket( desktop );
+
         socket.broadcast.emit('estado-actual', ticketControl.lastFour );
+        socket.emit('tickets-pendientes', ticketControl.tickets.length );
+        socket.broadcast.emit('tickets-pendientes', ticketControl.tickets.length );
 
         if ( !ticket ) {
 
